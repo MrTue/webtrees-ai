@@ -1,0 +1,59 @@
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.pyc
+
+# --- Loginoplysninger — må ALDRIG i git ------------------------------------
+login.json
+*.login.json
+.env
+
+# --- Dit eget slægtstræ og din forskning ----------------------------------
+# Alt herunder er personlige data. Repoet leverer kun skabeloner.
+facit.json
+roster.txt
+poster/*
+!poster/README-DA.md
+!poster/eksempel.json
+SLAEGTSHISTORIEN*.md
+Slaegtshistorien*.pdf
+*.pdf
+dokumenter/
+billeder/
+media/
+temp/
+webtrees-steder.csv
+arkiv/README-DA.md
+arkiv/bind.json
+arkiv/FJERNEDE-NOTER.md
+arkiv/kirkegaarde.json
+arkiv/dds/
+AABNE-SPOERGSMAAL.md
+SOEGEPLAN.md
+
+# Arbejdslisterne findes som *.skabelon.md i repoet; din udfyldte udgave
+# (uden .skabelon) holdes lokalt.
+GOER-MANUELT.md
+SLET-MANUELT.md
+
+# --- Hentede billeder, sider og cache -------------------------------------
+*.jpg
+*.jpeg
+*.png
+*.avif
+*.html
+!docs/*.html
+
+# --- Backups ---------------------------------------------------------------
+*.bak
+*.bak[0-9]*
+*.bak-*
+
+# --- Claude Code: lokale indstillinger ------------------------------------
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+.claude/*.zip
+.claude/agents/*.zip
+
+# --- Windows ---------------------------------------------------------------
+Thumbs.db
+desktop.ini

@@ -1,0 +1,56 @@
+services:
+  webtrees:
+    image: ghcr.io/nathanvaughn/webtrees:latest
+    container_name: webtrees
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8081:80"
+    environment:
+      TZ: "Europe/Copenhagen"
+      # Tailscale MagicDNS-navnet. Webtrees bygger alle links ud fra denne, saa den
+      # skal matche den adresse, brugerne faktisk kommer ind ad - ellers fejler login.
+      BASE_URL: "http://din-nas.dit-tailnet.ts.net:8081"
+      PRETTY_URLS: "1"
+      HTTPS: "0"
+      HTTPS_REDIRECT: "0"
+
+      # DB_* og WT_* er med vilje udeladt. Er de sat, forsoeger entrypointet at
+      # automatisere setup-guiden ved at kalde sin egen Apache paa 127.0.0.1:80
+      # foer den lytter -> ConnectionRefusedError -> containeren genstarter i ring.
+      # Guiden koeres i browseren i stedet, se INSTALL-DA.md.
+
+      PHP_MEMORY_LIMIT: "1024M"
+      PHP_UPLOAD_MAX_FILE_SIZE: "100M"
+      PHP_POST_MAX_SIZE: "100M"
+
+      # Samme UID/GID som paa NAS'en, saa ./data kan laeses over SMB
+      PUID: "1026"
+      PGID: "100"
+    volumes:
+      - /volume1/docker/webtrees/data:/var/www/webtrees/data/
+    restart: unless-stopped
+
+  db:
+    image: docker.io/library/mariadb:12
+    container_name: webtrees-db
+    environment:
+      TZ: "Europe/Copenhagen"
+      MARIADB_DATABASE: "webtrees"
+      MARIADB_USER: "webtrees"
+      MARIADB_PASSWORD: "SKIFT-MIG-ud-med-et-langt-tilfaeldigt-kodeord"
+      MARIADB_ROOT_PASSWORD: "SKIFT-OGSAA-MIG"
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    volumes:
+      - webtrees_db:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  webtrees_db:
+    driver: local

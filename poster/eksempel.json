@@ -1,0 +1,26 @@
+{"ops": [
+  {"id": "KILDE", "op": "create-source",
+   "title": "Eksempel Sogn, kirkebog 1850-1870",
+   "abbreviation": "KB Eksempel 1850-70",
+   "author": "Eksempel Sogns præst",
+   "publication": "Rigsarkivet, Arkivalieronline, bsid 123456",
+   "text": "Opdigtet eksempelkilde til dokumentationen. Afskrift af håndskrift, læst fra scanningen."},
+
+  {"id": "BARN", "op": "add-unlinked",
+   "lines": ["1 SEX M",
+             "1 NAME Anders /Eksempelsen/",
+             "1 BIRT", "2 DATE 3 MAR 1860", "2 PLAC Eksempel, Eksempel Herred, Eksempel Amt, Danmark", "2 SOUR @KILDE@", "3 PAGE Fødte mandkøn 1860 nr. 7",
+             "1 CHR",  "2 DATE 15 APR 1860", "2 PLAC Eksempel, Eksempel Herred, Eksempel Amt, Danmark", "2 SOUR @KILDE@", "3 PAGE Fødte mandkøn 1860 nr. 7"]},
+
+  {"id": "FAR", "op": "add-parent", "child": "@BARN@",
+   "lines": ["1 SEX M",
+             "1 NAME Peder /Eksempelsen/",
+             "1 OCCU Husmand",
+             "2 SOUR @KILDE@", "3 PAGE Fødte mandkøn 1860 nr. 7"]},
+
+  {"id": "MOR", "op": "add-spouse-to-family", "family": "@FAR.FAMS@",
+   "lines": ["1 SEX F",
+             "1 NAME Maren /Prøvesdatter/",
+             "1 NOTE Nævnt som moder ved sønnens dåb 1860.",
+             "2 SOUR @KILDE@"]}
+]}
