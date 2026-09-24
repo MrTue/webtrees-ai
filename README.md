@@ -5,6 +5,44 @@ Et arbejdsrum til slægtsforskning, hvor en AI-assistent i terminalen — fx
 **læser i de danske arkiver** og **skriver fundene ind i dit eget slægtstræ** i
 [webtrees](https://webtrees.net), med kilde, afskrift og scanning på hver oplysning.
 
+## Sådan ser det ud
+
+**Fra håndskrift …** Der findes ingen tekstgenkendelse af de danske kirkebøger. Assistenten
+henter opslaget fra Arkivalieronline, klipper indførslen ud og læser den selv:
+
+![Tranekær Sogns kirkebog, viede 1861 nr. 1](docs/billeder/1861-tranekaer-viede-nr1.jpg)
+
+*Tranekær Sogn (Langeland), kirkebog 1856-1891, viede 1861 nr. 1. Kilde: Rigsarkivet,
+Arkivalieronline.*
+
+| Felt | Afskrift |
+|---|---|
+| Brudgom | Ungkarl Christen Simonsen, 24 Aar gl., paa Korsebølle |
+| Brud | Pigen Marie Cathrine Jørgensen, 27¼ Aar, paa Korsebølle |
+| Forlovere | Gotfred Andreasen, Jørgen Kjeldsen |
+| Vielsesdag | 23. Februar 1861, i Tranekjær Kirke |
+| Anmærkninger | Brudg. v[accineret] 1837 af Gebhard. Bruden v. 1834 af Gebhard. |
+
+**… til slægtstræ.** Fundet beskrives som ét job, som klienten tørkører og viser, før noget
+sendes til webtrees. Vielsen bliver fx til:
+
+```
+1 MARR
+2 DATE 23 FEB 1861
+2 PLAC Tranekær, Langelands Nørre, Svendborg, Danmark
+2 SOUR @S1@
+3 PAGE Viede 1861 nr. 1
+3 NOTE Afskrift læst fra scanningen: «Ungkarl Christen Simonsen, 24 Aar gl., …»
+```
+
+Scanningen hæftes på kilden, så den følger med, hver gang kilden citeres.
+
+**… og til en bog.** `arkiv/mdpdf.py` sætter slægtsfortællingen som PDF, med tegnede
+slægtstavler og dokumenteret tekst holdt adskilt fra formodninger (personerne her er
+opdigtede):
+
+<p align="center"><img src="docs/billeder/eksempel-slaegtsbog.png" alt="Eksempelside fra en slægtsbog med tegnet slægtstavle" width="620"></p>
+
 Det består af tre dele:
 
 | Del | Hvad det er |

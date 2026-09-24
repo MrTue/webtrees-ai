@@ -17,10 +17,10 @@ poster/*
 SLAEGTSHISTORIEN*.md
 Slaegtshistorien*.pdf
 *.pdf
-dokumenter/
-billeder/
-media/
-temp/
+/dokumenter/
+/billeder/
+/media/
+/temp/
 webtrees-steder.csv
 arkiv/README-DA.md
 arkiv/bind.json
@@ -42,6 +42,8 @@ SLET-MANUELT.md
 *.avif
 *.html
 !docs/*.html
+!docs/billeder/*.jpg
+!docs/billeder/*.png
 
 # --- Backups ---------------------------------------------------------------
 *.bak
