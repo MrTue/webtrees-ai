@@ -142,34 +142,64 @@ assistenten om det:
 > *"Opret mig, mine forældre og mine fire bedsteforældre i træet. Jeg hedder …, født …
 > i …. Min far …, min mor …. Mine bedsteforældre på fars side …"*
 
-Assistenten skriver det som et job og viser tørkørslen, før noget sendes. Jo flere
+Assistenten skriver det som et job og viser dig tørkørslen, før noget sendes. Jo flere
 datoer og sogne du kan give, jo bedre. Dåbsattester, dødsannoncer og gamle breve kan du
 give den som billeder.
 
-*Sæt den i gang.* Bed den læse træet og selv vælge, hvor den skal søge videre:
+*Sæt den i gang, og lad den arbejde selv.* Bed den læse træet, vælge, hvor den skal søge
+videre, og arbejde **selvstændigt**. Så spørger den ikke for hvert fund:
 
-> *"Læs træet, find de aner, der mangler forældre, og søg efter deres dåb i kirkebøgerne.
-> Begynd med dem, hvor vi kender sognet. Vis mig tørkørslen for hvert fund, før du skriver."*
+> *"Arbejd selvstændigt de næste par timer. Læs træet, find de aner, der mangler forældre,
+> og søg efter deres dåb i kirkebøgerne. Begynd med dem, hvor vi kender sognet. Skriv de
+> sikre fund direkte i træet, og læg resten på listen til godkendelse."*
 
-> *"Arbejd dig bagud i min mormors linje, én generation ad gangen, så langt kirkebøgerne
-> rækker."*
+> *"Arbejd dig selvstændigt bagud i min mormors linje, én generation ad gangen, så langt
+> kirkebøgerne rækker."*
 
-> *"Find dødsdato og gravsted for alle i træet, der er født før 1920 og ikke har en
-> dødsdato."*
+> *"Find selvstændigt dødsdato og gravsted for alle i træet, der er født før 1920 og ikke
+> har en dødsdato."*
 
 > *"Gennemgå noterne i træet og tag fat i de åbne spor."*
 
-Undervejs henter assistenten hele træet med `arkiv/facit.py` og ser med
-`arkiv/bogdata.py <xref>`, hvilke pladser i anetavlen der er tomme. `arkiv/notetjek.py`
-viser de spor, noterne selv peger på. Hvert fund og hvert negative resultat skrives i
-journalen (`arkiv/README-DA.md`), så næste søgning begynder, hvor den forrige slap. Den
-spørger dig, før den skriver i træet, og kan ikke slette noget. Du bestemmer, hvor meget
-der skal godkendes ad gangen.
+**Selvstændig betyder ikke ukritisk.** Reglerne i `AGENTS.md` bestemmer, hvad assistenten
+må skrive uden at spørge. Den må kun **tilføje**, og kun når den selv har set scanningen af
+en kirkebog, folketælling eller lignende, læsningen er sikker, og mindst to kendetegn ud
+over navnet stemmer med træet, fx forældrenes navne og fødestedet. Alt, der ikke er sikkert,
+havner i stedet i `TIL-GODKENDELSE.md` med kilde og begrundelse. Det gælder sandsynlige
+identifikationer, kilder, der modsiger træet, og mulige dubletter. Rettelser af det, der
+allerede står i træet, spørger den altid om. Og den kan ikke slette noget.
+
+Undervejs henter den hele træet med `arkiv/facit.py`, ser med `arkiv/bogdata.py <xref>`,
+hvilke pladser i anetavlen der er tomme, og bruger `arkiv/notetjek.py` til at finde de spor,
+noterne selv peger på. Hvert fund og hvert negative resultat skrives i journalen
+(`arkiv/README-DA.md`), så næste søgning begynder, hvor den forrige slap. Til sidst kører den
+kontrollerne og giver dig en rapport: hvad der er oprettet, hvad der venter på dig, og hvad
+der blev søgt forgæves.
+
+**Så den ikke går i stå:** De fleste AI-assistenter spørger om lov, før de kører en kommando.
+Til lange kørsler skal du i assistentens indstillinger give den lov til at køre `python` i
+projektmappen uden at spørge. Se dens dokumentation om tilladelser eller *approval modes*.
+Giv den ikke mere end det, opgaven kræver.
 
 **Godt at vide:** Kirkebøger før ca. 1814 er sværere at læse og mere spredte, og nyere
 kirkebøger (typisk efter ca. 1960-1970) er ikke frit tilgængelige. Den bedste fremdrift får
-du i 1800-tallet. Kontrollér en gang imellem en afskrift mod scanningen selv. Assistenten
-kan læse forkert, og den ved det.
+du i 1800-tallet. Kig fundene igennem i webtrees bagefter, og kontrollér en gang imellem en
+afskrift mod scanningen. Assistenten kan læse forkert, og den ved det.
+
+**10. Giv den adgang til kilder bag login (valgfrit).** Nogle af de bedste kilder kræver
+abonnement eller login, fx Politikens og andre avisers arkiver (dødsannoncer, nekrologer),
+Nordjyskes avisarkiv, FamilySearch, Ancestry og MyHeritage. Sådan gør du:
+
+1. Log selv ind på siden i din egen browser, med dit eget abonnement.
+2. Brug en assistent, der kan arbejde i en browserfane, fx Claude med browserudvidelsen
+   *Claude in Chrome*, eller et tilsvarende værktøj til din assistent.
+3. Bed den søge dér: *"Jeg er logget ind på Politikens arkiv i Chrome. Søg efter
+   dødsannoncer for dem i træet, der døde i København efter 1950."*
+
+Assistenten ser aldrig dit kodeord, opretter ingen konti og kommer aldrig uden om en
+CAPTCHA eller en betalingsmur. Den holder sig inden for abonnementets vilkår: opslag til
+din egen slægtsforskning, lavt tempo og ingen massehentning. Udløber sessionen, beder den
+dig logge ind igen. `arkiv/KILDER-ONLINE.md` beskriver, hvad hver kilde kan.
 
 ## Dine data bliver hos dig
 

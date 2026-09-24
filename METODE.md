@@ -504,7 +504,7 @@ python webtrees_klient.py --dry-run poster\job.json
 python webtrees_klient.py poster\job.json
 ```
 
-**Kør altid `--dry-run` først** og vis brugeren, hvad der ville blive sendt.
+**Kør altid `--dry-run` først** og vis brugeren, hvad der ville blive sendt — medmindre brugeren har slået selvstændig kørsel til. Så gælder kravene i `AGENTS.md` («Selvstændig kørsel»), og du kører stadig tørkørslen selv.
 
 Du indtaster **aldrig** kodeord. Klienten læser dem fra `%USERPROFILE%\.webtrees\login.json`
 (eller den fil, `WEBTREES_LOGIN` peger på), som du aldrig åbner.

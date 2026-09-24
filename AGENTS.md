@@ -61,7 +61,59 @@ python arkiv\bogdata.py X1 5                              # anetavle, børneflok
 python arkiv\tekstkontrol.py <ny>.md <backup>.md          # er alt redaktionelt ude — og faldt en dato ud under omskrivningen?
 ```
 
-**Kør altid `--dry-run` først og vis brugeren resultatet**, før noget sendes til træet.
+**Kør altid `--dry-run` først og vis brugeren resultatet**, før noget sendes til træet —
+medmindre brugeren udtrykkeligt har slået **selvstændig kørsel** til (næste afsnit).
+
+## Selvstændig kørsel
+
+Brugeren kan bede dig arbejde i længere tid uden at spørge for hvert fund: *"arbejd
+selvstændigt"*, *"du behøver ikke spørge, før du opretter"* eller lignende. Det gælder den
+opgave og den session, brugeren nævner — ikke for altid. **Er du i tvivl, om det er slået
+til, så er det ikke.**
+
+I selvstændig kørsel må du sende et job uden at spørge, **når alle disse krav er opfyldt**:
+
+1. **Du har selv set scanningen af en primærkilde** — kirkebog, folketælling, skifte,
+   lægdsrulle. Et indeks, en indtastning eller et andet menneskes træ er et spor, ikke nok.
+2. **Identifikationen er sikker.** Ud over navnet stemmer mindst **to** uafhængige
+   kendetegn med det, træet allerede har: forældrenes navne, fødselsdato, fødested, bopæl,
+   ægtefælle. Et navn og et omtrentligt år er aldrig nok.
+3. **Læsningen er sikker.** Et ord, du ikke kan læse sikkert, må ikke bære en oplysning.
+4. **Du har slået op, at personen ikke findes i forvejen** (`facit.json`, også på fornavnet).
+5. **Jobbet kun tilføjer.** Nye personer, familier, kilder, medier og kendsgerninger.
+   `edit-fact`, kædning af eksisterende poster og alt, der ændrer eller erstatter noget, der
+   står i træet, kræver stadig brugerens ja.
+6. **Kilden oprettes ordentligt:** afskrift i noten (mærket som håndskrift læst fra
+   scanningen), scanningen hæftet på kilden, `PAGE` med nummer og år.
+7. **Ingen nulevende uden sikker kilde, og aldrig `DEAT` på en, der kan være i live.**
+
+Du kører stadig `--dry-run` først — for din egen skyld — og læser resultatfilen bagefter.
+
+**Det, der ikke opfylder kravene, skrives ikke i træet.** Det skrives i
+`TIL-GODKENDELSE.md` (lokal fil; opret den, hvis den mangler) med kilde, scanning og din
+begrundelse, så brugeren kan tage stilling bagefter. Det gælder især sandsynlige, men ikke
+sikre identifikationer, kilder, der modsiger træet, og mulige dubletter.
+
+**Stop og spørg**, hvis klienten fejler, hvis en kilde modsiger noget centralt i træet,
+eller hvis opgaven vokser ud over det, brugeren bad om.
+
+**Når kørslen slutter:** kør kontrollerne (`facit.py`, `linktjek.py`, `markutjek.py`,
+`medietjek.py`, `stedtjek.py`, `dubletjek.py --fra <nummeret på første nye xref>`), før journalen
+ajour — også de negative resultater — og giv brugeren en rapport: hvad der er oprettet
+(xref og kilde), hvad der ligger i `TIL-GODKENDELSE.md`, og hvad der blev søgt forgæves.
+
+## Kilder bag login
+
+Nogle af de bedste kilder kræver login eller abonnement: Politikens og andre avisers
+arkiver, Nordjyskes avisarkiv, FamilySearch, Ancestry, MyHeritage. **Brugeren logger selv
+ind i sin egen browser**; kan du arbejde i en browserfane, søger du i *den* fane.
+
+- **Indtast aldrig et kodeord, opret aldrig en konto, og kom aldrig uden om en CAPTCHA,
+  en betalingsmur eller en botbeskyttelse.**
+- Hold dig inden for abonnementets vilkår: opslag til brugerens egen slægtsforskning, lavt
+  tempo, ingen massehentning. Gem kun det, der skal bruges som kilde.
+- Sender siden dig til en loginside, er sessionen udløbet — bed brugeren logge ind igen.
+- `arkiv/KILDER-ONLINE.md` beskriver hver kilde; `METODE.md` har FamilySearch.
 
 ## Sådan hænger delene sammen
 
