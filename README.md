@@ -133,6 +133,44 @@ python webtrees_klient.py --dry-run poster\eksempel.json
 Eksempelsen, født omkring 1850 i Give sogn"*. Agenten søger, viser dig tørkørslen og skriver
 først i træet, når du har sagt ja.
 
+**9. Så får du det rigtig stærke: lad AI'en udvide træet selv.** Giv den et udgangspunkt,
+og sæt den derefter til at søge videre ud fra det, der allerede står i træet.
+
+*Læg udgangspunktet ind.* Det kan du gøre i hånden i webtrees, men det er nemmest at bede
+assistenten om det:
+
+> *"Opret mig, mine forældre og mine fire bedsteforældre i træet. Jeg hedder …, født …
+> i …. Min far …, min mor …. Mine bedsteforældre på fars side …"*
+
+Assistenten skriver det som et job og viser tørkørslen, før noget sendes. Jo flere
+datoer og sogne du kan give, jo bedre. Dåbsattester, dødsannoncer og gamle breve kan du
+give den som billeder.
+
+*Sæt den i gang.* Bed den læse træet og selv vælge, hvor den skal søge videre:
+
+> *"Læs træet, find de aner, der mangler forældre, og søg efter deres dåb i kirkebøgerne.
+> Begynd med dem, hvor vi kender sognet. Vis mig tørkørslen for hvert fund, før du skriver."*
+
+> *"Arbejd dig bagud i min mormors linje, én generation ad gangen, så langt kirkebøgerne
+> rækker."*
+
+> *"Find dødsdato og gravsted for alle i træet, der er født før 1920 og ikke har en
+> dødsdato."*
+
+> *"Gennemgå noterne i træet og tag fat i de åbne spor."*
+
+Undervejs henter assistenten hele træet med `arkiv/facit.py` og ser med
+`arkiv/bogdata.py <xref>`, hvilke pladser i anetavlen der er tomme. `arkiv/notetjek.py`
+viser de spor, noterne selv peger på. Hvert fund og hvert negative resultat skrives i
+journalen (`arkiv/README-DA.md`), så næste søgning begynder, hvor den forrige slap. Den
+spørger dig, før den skriver i træet, og kan ikke slette noget. Du bestemmer, hvor meget
+der skal godkendes ad gangen.
+
+**Godt at vide:** Kirkebøger før ca. 1814 er sværere at læse og mere spredte, og nyere
+kirkebøger (typisk efter ca. 1960-1970) er ikke frit tilgængelige. Den bedste fremdrift får
+du i 1800-tallet. Kontrollér en gang imellem en afskrift mod scanningen selv. Assistenten
+kan læse forkert, og den ved det.
+
 ## Dine data bliver hos dig
 
 Repoet indeholder **kun værktøj og metode**. Dit træ, dine jobfiler, din arkivjournal, dine
